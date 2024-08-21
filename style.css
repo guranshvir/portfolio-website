@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@font-face {
+  font-family: Rambors;
+  src: url(Rambors.ttf);
+}
+
+/* Base Styles */
+:root {
+  font-family: "Helvetica", "Arial", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+#Space {
+  font-family: "Helvetica", "Arial", sans-serif;
+  width: 100%;
+  height: 300vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-wrap: stable;
+}
+
+#hero,
+.hero2,
+#hero3 {
+  position: absolute;
+  z-index: 10;
+  width: 50vw;
+  height: 30vw;
+  min-height: 600px; /* Ensures a consistent height */
+  background: rgba(0, 0, 0, 0.174);
+  padding: 10px;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: saturate(100) blur(10px);
+  font-size: 48px; /* Adjust size as needed */
+  font-weight: bold;
+  font-size: 28px;
+  color: #d6cfc4; /* Light beige/off-white text */
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+/* .name {
+  position: absolute;
+  top: 80px;
+} */
+
+#hero .name {
+  font-size: 42px;
+  color: #e1d7c6;
+  -webkit-mask-image: linear-gradient(
+    -75deg,
+    rgba(0, 0, 0, 0.8) 30%,
+    #000 50%,
+    rgba(0, 0, 0, 0.8) 70%
+  );
+  -webkit-mask-size: 200%;
+  animation: shine 1s infinite;
+}
+
+@-webkit-keyframes shine {
+  from {
+    -webkit-mask-position: 150%;
+  }
+  to {
+    -webkit-mask-position: -50%;
+  }
+}
+
+#hero {
+  top: 175px;
+}
+
+.hero2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  top: 1000px;
+}
+
+.hero2slides {
+  background: rgba(43, 42, 42, 0.174);
+  display: flex;
+
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#hero3 {
+  top: 2100px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  h1 {
+    position: absolute;
+    top: 40px;
+  }
+}
+
+.project {
+  position: absolute;
+  height: 100%;
+  width: 80%;
+  top: 120px;
+}
+
+.slider {
+  width: var(--width);
+  height: 95%;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 10% 90%,
+    transparent
+  );
+}
+
+.slider .list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: calc(var(--height) * var(--quantity));
+  position: relative;
+}
+
+.slider .list .item {
+  width: var(--width);
+  height: var(--height);
+  position: absolute;
+  top: 100%;
+  animation: autoRun 10s linear infinite;
+  transition: filter 0.5s;
+  animation-delay: calc(
+    (10s / var(--quantity)) * (var(--position) - 1) - 10s
+  ) !important;
+}
+
+.slider .list .item img {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes autoRun {
+  from {
+    top: 100%;
+  }
+  to {
+    top: calc(var(--height) * -1);
+  }
+}
+
+.slider:hover .item {
+  animation-play-state: paused !important;
+  filter: grayscale(1);
+}
+
+.slider .item:hover {
+  filter: grayscale(0);
+}
+
+/* Screen Size Adjustments for Laptops */
+@media (min-width: 1024px) and (max-width: 1440px) {
+  #hero {
+    top: 90px;
+  }
+
+  .hero2 {
+    top: 840px;
+  }
+
+  #hero3 {
+    top: 1670px;
+  }
+}
+
+/* Screen Size Adjustments for Mobile Phones */
+@media (max-width: 768px) {
+  #hero,
+  .hero2,
+  #hero3 {
+    width: 75vw;
+    min-height: 550px; /* Adjusted for smaller screens */
+  }
+
+  #hero .name {
+    font-size: 1em; /* Adjust font size for smaller screens */
+  }
+
+  #hero {
+    top: 170px;
+  }
+
+  .hero2 {
+    top: 1000px;
+  }
+
+  #hero3 {
+    top: 2090px;
+  }
+
+  #hero .name {
+    font-size: 36px; /* Adjust font size for smaller screens */
+  }
+}
+
+/* Screen Size Adjustments for Very Small Mobile Phones */
+@media (max-width: 480px) {
+  #hero,
+  .hero2,
+  #hero3 {
+    width: 95vw;
+    min-height: 450px; /* Adjust further for very small screens */
+  }
+
+  #hero .name {
+    font-size: 28px; /* Smaller font size for very small screens */
+  }
+}
