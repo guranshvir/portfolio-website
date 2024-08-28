@@ -31,8 +31,8 @@
 #hero3 {
   position: absolute;
   z-index: 10;
-  width: 50vw;
-  height: 30vw;
+  width: 55vw;
+  height: 30vh;
   min-height: 600px; /* Ensures a consistent height */
   background: rgba(0, 0, 0, 0.174);
   padding: 10px;
@@ -78,7 +78,7 @@
 }
 
 #hero {
-  top: 175px;
+  top: 20vh;
 }
 
 .hero2 {
@@ -86,7 +86,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  top: 1000px;
+  top: 120vh;
 }
 
 .hero2slides {
@@ -99,7 +99,7 @@
 }
 
 #hero3 {
-  top: 2100px;
+  top: 220vh;
   color: white;
   display: flex;
   align-items: center;
@@ -175,20 +175,53 @@
 /* Screen Size Adjustments for Laptops */
 @media (min-width: 1024px) and (max-width: 1440px) {
   #hero {
-    top: 90px;
+    top: 10vh;
   }
 
   .hero2 {
-    top: 840px;
+    top: 120vh;
   }
 
   #hero3 {
-    top: 1670px;
+    top: 213vh;
   }
 }
 
 /* Screen Size Adjustments for Mobile Phones */
 @media (max-width: 768px) {
+  #hero,
+  .hero2,
+  #hero3 {
+    width: 75vw;
+    min-height: 550px; /* Adjusted for smaller screens */
+  }
+
+  #hero .name {
+    font-size: 1em; /* Adjust font size for smaller screens */
+  }
+
+  #hero {
+    top: 10vh;
+  }
+
+  .hero2 {
+    top: 130vh;
+    font-size: large;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #hero3 {
+    top: 213vh;
+  }
+
+  #hero .name {
+    font-size: 36px; /* Adjust font size for smaller screens */
+  }
+}
+
+/* Screen Size Adjustments for Very Small Mobile Phones */
+@media (max-width: 480px) {
   #hero,
   .hero2,
   #hero3 {
@@ -214,19 +247,5 @@
 
   #hero .name {
     font-size: 36px; /* Adjust font size for smaller screens */
-  }
-}
-
-/* Screen Size Adjustments for Very Small Mobile Phones */
-@media (max-width: 480px) {
-  #hero,
-  .hero2,
-  #hero3 {
-    width: 95vw;
-    min-height: 450px; /* Adjust further for very small screens */
-  }
-
-  #hero .name {
-    font-size: 28px; /* Smaller font size for very small screens */
   }
 }
